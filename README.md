@@ -28,7 +28,7 @@ key | value
 oci_region | OCI region to deploy the spoke VCN and gateway
 oci_account_name | The OCI account name on the Aviatrix controller, under which the controller will deploy this VCN
 oci_spoke_cidr | The IP CIDR wo be used to create the VCN
-avx_transit_gateway | The name of the Aviatrix Transit gateway to attach the spoke
+transit_gw | The name of the Aviatrix Transit gateway to attach the spoke
 
 The following variables are optional:
 

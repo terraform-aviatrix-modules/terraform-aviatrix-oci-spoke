@@ -40,7 +40,7 @@ variable "oci_gw_size" {
   default     = "VM.Standard2.2"
 }
 
-variable "avx_transit_gateway" {
+variable "transit_gw" {
   description = "The Aviatrix Transit Gateway to attach the Spoke Gateway to"
   type        = string
   default     = ""
