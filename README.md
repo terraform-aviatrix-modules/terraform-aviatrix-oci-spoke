@@ -7,7 +7,7 @@ This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Avia
 ### Diagram
 <img src="https://github.com/fkhademi/terraform-aviatrix-oci-spoke/blob/master/img/oci-spoke-ha.png?raw=true"  height="250">
 with ha_gw set to false, the following will be deployed:
-<img src="https://github.com/fkhademi/terraform-aviatrix-oci-spoke/blob/master/images/oci-spoke-single.png?raw=true" height="250">
+<img src="https://github.com/fkhademi/terraform-aviatrix-oci-spoke/blob/master/img/oci-spoke-single.png?raw=true" height="250">
 ### Usage Example
 
 ```
