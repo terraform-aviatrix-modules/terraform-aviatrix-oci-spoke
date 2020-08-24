@@ -5,13 +5,9 @@
 This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Aviatrix Transit gateway. Defining the Aviatrix Terraform provider is assumed upstream and is not part of this module.
 
 ### Diagram
-
-<img src="https://github.com/fkhademi/terraform-aviatrix-oci-spoke/blob/master/images/oci-spoke-ha.png"  height="250">
-
+<img src="https://github.com/fkhademi/terraform-aviatrix-oci-spoke/blob/master/img/oci-spoke-ha.png?raw=true"  height="250">
 with ha_gw set to false, the following will be deployed:
-
-<img src="https://github.com/fkhademi/terraform-aviatrix-oci-spoke/blob/master/images/oci-spoke-single.png" height="250">
-
+<img src="https://github.com/fkhademi/terraform-aviatrix-oci-spoke/blob/master/images/oci-spoke-single.png?raw=true" height="250">
 ### Usage Example
 
 ```
