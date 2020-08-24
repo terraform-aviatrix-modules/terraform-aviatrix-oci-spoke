@@ -19,7 +19,7 @@ variable "transit_gw" {
   type        = string
 }
 
-variable "gw_size" {
+variable "instance_size" {
   description = "The compute instance shape size for the Aviatrix gateways"
   type        = string
   default     = "VM.Standard2.2"
