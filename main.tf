@@ -1,10 +1,10 @@
 # Aviatrix Spoke VCN
 resource "aviatrix_vpc" "default" {
-    cloud_type      = 16
-    name            = length(var.name) > 0 ? "avx-${var.name}-spoke" : "avx-${var.region}-spoke"
-    region          = var.region
-    cidr            = var.cidr
-    account_name    = var.account
+  cloud_type   = 16
+  name         = length(var.name) > 0 ? "avx-${var.name}-spoke" : "avx-${var.region}-spoke"
+  region       = var.region
+  cidr         = var.cidr
+  account_name = var.account
 }
 
 # Single OCI Spoke Gateway 
