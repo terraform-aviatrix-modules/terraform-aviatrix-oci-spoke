@@ -1,4 +1,9 @@
 # Required Vars
+variable "name" {
+  description = "Name to assign to objects"
+  type        = string
+}
+
 variable "region" {
   description = "The OCI region where the Aviatrix Spoke VCN and Gateway will be provisioned in"
   type        = string
@@ -29,10 +34,4 @@ variable "ha_gw" {
   description = "Boolean to determine if module will be deployed in HA or single mode"
   type        = bool
   default     = true
-}
-
-variable "name" {
-  description = "Name to assign to objects"
-  type        = string
-  default     = ""
 }
