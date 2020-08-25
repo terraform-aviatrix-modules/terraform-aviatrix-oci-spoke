@@ -1,4 +1,4 @@
-# Aviatrix OCI Spoke VPC
+# Aviatrix Spoke VCN
 resource "aviatrix_vpc" "default" {
   cloud_type   = 16
   name         = "avx-${var.name}-spoke"

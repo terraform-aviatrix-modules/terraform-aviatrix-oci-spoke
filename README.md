@@ -5,9 +5,9 @@
 This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Aviatrix Transit gateway. Defining the Aviatrix Terraform provider is assumed upstream and is not part of this module.
 
 ### Diagram
-
-<img src="https://avtx-tf-modules-images.s3.amazonaws.com/transit-vcn-oci.png"  height="250">
-
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-oci-spoke/blob/master/img/oci-spoke-ha.png?raw=true"  height="250">
+with ha_gw set to false, the following will be deployed:
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-oci-spoke/blob/master/img/oci-spoke-single.png?raw=true" height="250">
 ### Usage Example
 
 ```
@@ -15,6 +15,8 @@ This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Avia
 module "oci_spoke_1" {
   source         = "terraform-aviatrix-modules/oci-spoke/aviatrix"
   version        = "1.0.1"
+
+  name           = "my-oci-spoke"
   cidr           = "10.3.0.0/16"
   region         = "us-ashburn-1"
   account        = "TM-OCI"
@@ -25,7 +27,7 @@ The following variables are required:
 
 key | value
 --- | ---
-name | Provide a name for VPC and Gateway resources. Result will be avx-\<name\>-spoke.
+name | avx-\<name\>-spoke
 region | OCI region to deploy the spoke VCN and gateway
 account | The OCI account name on the Aviatrix controller, under which the controller will deploy this VCN
 cidr | The IP CIDR wo be used to create the VCN

@@ -1,6 +1,6 @@
 output "vcn" {
   description = "The full Spoke OCI VCN object"
-  value       = aviatrix_vpc.oci_spoke_vcn
+  value       = aviatrix_vpc.default
 }
 
 output "spoke_gateway" {
