@@ -14,7 +14,7 @@ resource "aviatrix_spoke_gateway" "spoke_gw" {
   vpc_id             = aviatrix_vpc.default.name
   cloud_type         = 16
   vpc_reg            = var.region
-  enable_active_mesh = true
+  enable_active_mesh = var.active_mesh
   gw_size            = var.instance_size
   account_name       = var.account
   subnet             = aviatrix_vpc.default.subnets[0].cidr
@@ -28,7 +28,7 @@ resource "aviatrix_spoke_gateway" "spoke_hagw" {
   vpc_id             = aviatrix_vpc.default.name
   cloud_type         = 16
   vpc_reg            = var.region
-  enable_active_mesh = true
+  enable_active_mesh = var.active_mesh
   gw_size            = var.instance_size
   account_name       = var.account
   subnet             = aviatrix_vpc.default.subnets[0].cidr
