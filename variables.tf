@@ -35,3 +35,9 @@ variable "ha_gw" {
   type        = bool
   default     = true
 }
+
+variable "active_mesh" {
+  description = ""
+  type        = bool
+  default     = true
+}

@@ -19,7 +19,7 @@ module "oci_spoke_1" {
   name           = "my-oci-spoke"
   cidr           = "10.3.0.0/16"
   region         = "us-ashburn-1"
-  account        = "TM-OCI"
+  account        = "OCI"
 }
 ```
 
@@ -39,6 +39,7 @@ key | default | value
 --- | --- | ---
 instance_size | VM.Standard2.2 | Size of the spoke gateway instances
 ha_gw | true | Builds spoke gateways with HA by default
+active_mesh | true | Set to false to disable active_mesh
 
 Outputs
 This module will return the following objects:
