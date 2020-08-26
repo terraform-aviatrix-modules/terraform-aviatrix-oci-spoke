@@ -20,6 +20,7 @@ module "oci_spoke_1" {
   cidr           = "10.3.0.0/16"
   region         = "us-ashburn-1"
   account        = "OCI"
+  transit_gw     = "avx-transit1-transit"
 }
 ```
 
