@@ -37,7 +37,7 @@ variable "ha_gw" {
 }
 
 variable "active_mesh" {
-  description = ""
+  description = "Set to false to disable active mesh."
   type        = bool
   default     = true
 }
