@@ -1,20 +1,30 @@
 # Terraform Aviatrix OCI Spoke
 
 ### Description
-
 This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Aviatrix Transit gateway. Defining the Aviatrix Terraform provider is assumed upstream and is not part of this module.
+
+### Compatibility
+Module version | Terraform version | Controller version | Terraform provider version
+:--- | :--- | :--- | :---
+v1.1.0 | 0.12 | | 
+v1.0.2 | 0.12 | | 
+v1.0.1 | 0.12 | |
+v1.0.0 | 0.12 | |
 
 ### Diagram
 <img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-oci-spoke/blob/master/img/oci-spoke-ha.png?raw=true"  height="250">
+
 with ha_gw set to false, the following will be deployed:
+
 <img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-oci-spoke/blob/master/img/oci-spoke-single.png?raw=true" height="250">
+
 ### Usage Example
 
 ```
 # OCI Spoke Module
 module "oci_spoke_1" {
   source         = "terraform-aviatrix-modules/oci-spoke/aviatrix"
-  version        = "1.0.1"
+  version        = "1.1.0"
 
   name           = "my-oci-spoke"
   cidr           = "10.3.0.0/16"
