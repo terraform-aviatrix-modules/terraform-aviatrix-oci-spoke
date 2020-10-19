@@ -51,6 +51,8 @@ key | default | value
 instance_size | VM.Standard2.2 | Size of the spoke gateway instances
 ha_gw | true | Builds spoke gateways with HA by default
 active_mesh | true | Set to false to disable active_mesh
+prefix | true | Boolean to enable prefix name with avx-
+suffix | true | Boolean to enable suffix name with -spoke
 
 Outputs
 This module will return the following objects:
