@@ -6,6 +6,7 @@ This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Avia
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v1.1.1 | 0.12 | | 
 v1.1.0 | 0.12 | | 
 v1.0.2 | 0.12 | | 
 v1.0.1 | 0.12 | |
@@ -24,7 +25,7 @@ with ha_gw set to false, the following will be deployed:
 # OCI Spoke Module
 module "oci_spoke_1" {
   source         = "terraform-aviatrix-modules/oci-spoke/aviatrix"
-  version        = "1.1.0"
+  version        = "1.1.1"
 
   name           = "my-oci-spoke"
   cidr           = "10.3.0.0/16"
