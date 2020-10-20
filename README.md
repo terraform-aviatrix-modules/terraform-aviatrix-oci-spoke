@@ -6,6 +6,7 @@ This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Avia
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v2.0.0 | 0.12 | >=6.2 | >=0.2.17
 v1.1.1 | 0.12 | | 
 v1.1.0 | 0.12 | | 
 v1.0.2 | 0.12 | | 
@@ -25,13 +26,14 @@ with ha_gw set to false, the following will be deployed:
 # OCI Spoke Module
 module "oci_spoke_1" {
   source         = "terraform-aviatrix-modules/oci-spoke/aviatrix"
-  version        = "1.1.1"
+  version        = "2.0.0"
 
   name           = "my-oci-spoke"
   cidr           = "10.3.0.0/16"
   region         = "us-ashburn-1"
   account        = "OCI"
   transit_gw     = "avx-transit1-transit"
+  security_domain = "blue"  
 }
 ```
 
@@ -54,6 +56,8 @@ ha_gw | true | Builds spoke gateways with HA by default
 active_mesh | true | Set to false to disable active_mesh
 prefix | true | Boolean to enable prefix name with avx-
 suffix | true | Boolean to enable suffix name with -spoke
+attached | true | Set to false if you don't want to attach spoke to transit.
+security_domain | Provide security domain name to which spoke needs to be deployed. Transit gateway must be attached and have segmentation enabled.
 
 Outputs
 This module will return the following objects:
