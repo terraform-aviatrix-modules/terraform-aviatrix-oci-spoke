@@ -41,3 +41,22 @@ variable "active_mesh" {
   type        = bool
   default     = true
 }
+
+variable "prefix" {
+  description = "Boolean to determine if name will be prepended with avx-"
+  type        = bool
+  default     = true
+}
+
+variable "suffix" {
+  description = "Boolean to determine if name will be appended with -spoke"
+  type        = bool
+  default     = true
+}
+
+locals {
+  lower_name = replace(lower(var.name), " ", "-")
+  prefix     = var.prefix ? "avx-" : ""
+  suffix     = var.suffix ? "-spoke" : ""
+  name       = "${local.prefix}${local.lower_name}${local.suffix}"
+}
