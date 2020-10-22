@@ -19,7 +19,6 @@ resource "aviatrix_spoke_gateway" "default" {
   subnet                            = aviatrix_vpc.default.subnets[0].cidr
   ha_subnet                         = var.ha_gw ? aviatrix_vpc.default.subnets[0].cidr : null
   ha_gw_size                        = var.ha_gw ? var.instance_size : null
-  transit_gw                        = var.transit_gw
   manage_transit_gateway_attachment = false
 }
 
