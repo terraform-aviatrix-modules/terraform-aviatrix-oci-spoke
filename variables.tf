@@ -96,9 +96,37 @@ variable "included_advertised_spoke_routes" {
   default     = ""
 }
 
+variable "insane_mode" {
+  type    = bool
+  default = false
+}
+
+variable "enable_private_vpc_default_route" {
+  description = "Program default route in VPC private route table"
+  type        = bool
+  default     = false
+}
+
+variable "enable_skip_public_route_table_update" {
+  description = "Skip programming VPC public route table"
+  type        = bool
+  default     = false
+}
+
+variable "enable_auto_advertise_s2c_cidrs" {
+  description = "Auto Advertise Spoke Site2Cloud CIDRs"
+  type        = bool
+  default     = false
+}
+
 locals {
   lower_name = replace(lower(var.name), " ", "-")
   prefix     = var.prefix ? "avx-" : ""
   suffix     = var.suffix ? "-spoke" : ""
   name       = "${local.prefix}${local.lower_name}${local.suffix}"
+  cidrbits   = tonumber(split("/", var.cidr)[1])
+  newbits    = 26 - local.cidrbits
+  netnum     = pow(2, local.newbits)
+  subnet     = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 2) : aviatrix_vpc.default.public_subnets[0].cidr
+  ha_subnet  = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 1) : aviatrix_vpc.default.public_subnets[0].cidr
 }
