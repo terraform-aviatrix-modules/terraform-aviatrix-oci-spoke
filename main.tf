@@ -25,7 +25,7 @@ resource "aviatrix_spoke_gateway" "default" {
   customized_spoke_vpc_routes       = var.customized_spoke_vpc_routes
   filtered_spoke_vpc_routes         = var.filtered_spoke_vpc_routes
   included_advertised_spoke_routes  = var.included_advertised_spoke_routes
-  insane_mode                       = true
+  insane_mode                       = var.insane_mode
 }
 
 resource "aviatrix_spoke_transit_attachment" "default" {
