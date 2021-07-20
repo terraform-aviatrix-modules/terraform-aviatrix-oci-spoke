@@ -26,6 +26,10 @@ resource "aviatrix_spoke_gateway" "default" {
   filtered_spoke_vpc_routes         = var.filtered_spoke_vpc_routes
   included_advertised_spoke_routes  = var.included_advertised_spoke_routes
   insane_mode                       = var.insane_mode
+  availability_domain               = aviatrix_vpc.default.availability_domains[0]
+  fault_domain                      = aviatrix_vpc.default.fault_domains[0]
+  ha_availability_domain            = var.ha_gw ? aviatrix_vpc.default.availability_domains[1] : null
+  ha_fault_domain                   = var.ha_gw ? aviatrix_vpc.default.fault_domains[1] : null
 }
 
 resource "aviatrix_spoke_transit_attachment" "default" {

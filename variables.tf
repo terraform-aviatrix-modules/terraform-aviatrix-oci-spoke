@@ -22,6 +22,7 @@ variable "account" {
 variable "transit_gw" {
   description = "The Aviatrix Transit Gateway to attach the Spoke Gateway to"
   type        = string
+  default     = ""
 }
 
 variable "instance_size" {
