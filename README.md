@@ -8,6 +8,7 @@ This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Avia
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v4.0.6 | 0.13, 0.14, 0.15 | >=6.4 | 2.19.5
 v4.0.5 | 0.13, 0.14, 0.15 | >=6.4 | 2.19.5
 v4.0.3 | 0.13,0.14 | >=6.4 | >=0.2.19
 v4.0.2 | 0.13,0.14 | >=6.4 | >=0.2.19
@@ -33,7 +34,7 @@ with ha_gw set to false, the following will be deployed:
 # OCI Spoke Module
 module "oci_spoke_1" {
   source         = "terraform-aviatrix-modules/oci-spoke/aviatrix"
-  version        = "4.0.5"
+  version        = "4.0.6"
 
   name           = "my-oci-spoke"
   cidr           = "10.3.0.0/16"
@@ -74,8 +75,17 @@ enable_private_vpc_default_route | false| Program default route in VPC private r
 enable_skip_public_route_table_update| false | Skip programming VPC public route table
 enable_auto_advertise_s2c_cidrs | false | Auto Advertise Spoke Site2Cloud CIDRs
 insane_mode | false | Set to true for insane mode encryption
+attached_gw_egress | true | Set to false if you don't want to attach spoke to transit_gw2
+transit_gw_egress| | Name of the transit gateway to attach this spoke to
+transit_gw_route_tables | [] | Route tables to propagate routes to for transit_gw attachment
+transit_gw_egress_route_tables | [] | Route tables to propagate routes to for transit_gw_egress attachment
+private_vpc_default_route | false | Program default route in VPC private route table
+skip_public_route_table_update | false | Skip programming VPC public route table
+auto_advertise_s2c_cidrs | false | Auto Advertise Spoke Site2Cloud CIDRs
+tunnel_detection_time | | The IPsec tunnel down detection time for the Spoke Gateway in seconds. Must be a number in the range [20-600]
+inspection | false | Set to true to enable east/west Firenet inspection. Only valid when transit_gw is East/West transit Firenet
 
-Outputs
+### Outputs
 This module will return the following objects:
 
 key | description

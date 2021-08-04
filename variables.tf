@@ -120,6 +120,60 @@ variable "enable_auto_advertise_s2c_cidrs" {
   default     = false
 }
 
+variable "attached_gw_egress" {
+  description = "Set to false if you don't want to attach spoke to transit_gw2."
+  type        = bool
+  default     = true
+}
+
+variable "transit_gw_egress" {
+  description = "Name of the transit gateway to attach this spoke to"
+  type        = string
+  default     = ""
+}
+
+variable "transit_gw_route_tables" {
+  description = "Route tables to propagate routes to for transit_gw attachment"
+  type        = list(string)
+  default     = []
+}
+
+variable "transit_gw_egress_route_tables" {
+  description = "Route tables to propagate routes to for transit_gw_egress attachment"
+  type        = list(string)
+  default     = []
+}
+
+variable "private_vpc_default_route" {
+  description = "Program default route in VPC private route table."
+  type        = bool
+  default     = false
+}
+
+variable "skip_public_route_table_update" {
+  description = "Skip programming VPC public route table."
+  type        = bool
+  default     = false
+}
+
+variable "auto_advertise_s2c_cidrs" {
+  description = "Auto Advertise Spoke Site2Cloud CIDRs."
+  type        = bool
+  default     = false
+}
+
+variable "tunnel_detection_time" {
+  description = "The IPsec tunnel down detection time for the Spoke Gateway in seconds. Must be a number in the range [20-600]."
+  type        = number
+  default     = null
+}
+
+variable "inspection" {
+  description = "Set to true to enable east/west Firenet inspection. Only valid when transit_gw is East/West transit Firenet"
+  type        = bool
+  default     = false
+}
+
 locals {
   lower_name = replace(lower(var.name), " ", "-")
   prefix     = var.prefix ? "avx-" : ""
