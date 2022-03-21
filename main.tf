@@ -13,7 +13,6 @@ resource "aviatrix_spoke_gateway" "default" {
   vpc_id                                = aviatrix_vpc.default.name
   cloud_type                            = 16
   vpc_reg                               = var.region
-  enable_active_mesh                    = var.active_mesh
   gw_size                               = var.instance_size
   account_name                          = var.account
   subnet                                = local.subnet

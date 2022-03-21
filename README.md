@@ -13,6 +13,7 @@ This module deploys a VCN, an Aviatrix spoke gateway, and attaches it to an Avia
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v9.9.9 | 0.13, 0.14, 0.15 | >=6.4 | 2.21.1
 v4.0.6 | 0.13, 0.14, 0.15 | >=6.4 | 2.19.5
 v4.0.5 | 0.13, 0.14, 0.15 | >=6.4 | 2.19.5
 v4.0.3 | 0.13,0.14 | >=6.4 | >=0.2.19
@@ -65,7 +66,6 @@ key | default | value
 --- | --- | ---
 instance_size | VM.Standard2.2 | Size of the spoke gateway instances
 ha_gw | true | Builds spoke gateways with HA by default
-active_mesh | true | Set to false to disable active_mesh
 prefix | true | Boolean to enable prefix name with avx-
 suffix | true | Boolean to enable suffix name with -spoke
 attached | true | Set to false if you don't want to attach spoke to transit.
